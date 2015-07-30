@@ -13,5 +13,9 @@ namespace DemoApp.Persistence.Entity
         public int CategoryId { get; set; }
 
         public DateTime LastUpdated { get; set; }
+
+        public virtual List<Category> Categories { get; set; }
+
+        public virtual List<Film> Films { get; set; }
     }
 }

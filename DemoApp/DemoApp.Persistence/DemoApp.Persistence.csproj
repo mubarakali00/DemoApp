@@ -55,22 +55,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\ActorConfig.cs" />
+    <Compile Include="Configuration\CategoryConfig.cs" />
+    <Compile Include="Configuration\FilmActorConfig.cs" />
+    <Compile Include="Configuration\FilmCategoryConfig.cs" />
+    <Compile Include="Configuration\FilmConfig.cs" />
+    <Compile Include="Configuration\InventoryConfig.cs" />
+    <Compile Include="Configuration\LanguageConfig.cs" />
     <Compile Include="DatabaseContext.cs" />
     <Compile Include="Entity\Actor.cs" />
+    <Compile Include="Entity\Address.cs" />
     <Compile Include="Entity\Category.cs" />
+    <Compile Include="Entity\City.cs" />
+    <Compile Include="Entity\Country.cs" />
+    <Compile Include="Entity\Customer.cs" />
     <Compile Include="Entity\Film.cs" />
     <Compile Include="Entity\FilmActor.cs" />
     <Compile Include="Entity\FilmCategory.cs" />
+    <Compile Include="Entity\Inventory.cs" />
     <Compile Include="Entity\Language.cs" />
+    <Compile Include="Entity\Payment.cs" />
+    <Compile Include="Entity\Rental.cs" />
+    <Compile Include="Entity\Staff.cs" />
+    <Compile Include="Entity\Store.cs" />
+    <Compile Include="IDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Configuration\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -13,5 +13,9 @@ namespace DemoApp.Persistence.Entity
         public int ActorId { get; set; }
 
         public DateTime LastUpdated { get; set; }
+
+        public virtual ICollection<Film> Films { get; set; }
+
+        public virtual ICollection<Actor> Actors { get; set; }
     }
 }

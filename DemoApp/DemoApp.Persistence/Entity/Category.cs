@@ -13,5 +13,7 @@ namespace DemoApp.Persistence.Entity
         public string Name { get; set; }
 
         public DateTime LastUpdated { get; set; }
+
+        public virtual FilmCategory CategoryFilm { get; set; }
     }
 }

@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace DemoApp.Persistence.Entity
 {
-    public class Language
+    public class Store
     {
-        public int LanguageId { get; set; }
+        public int StoreId { get; set; }
+        
+        public int ManagerStaffId { get; set; }
 
-        public string Name { get; set; }
+        public int AddressId { get; set; }
 
         public DateTime LastUpdated { get; set; }
-
-        public virtual Film Film { get; set; }
     }
 }

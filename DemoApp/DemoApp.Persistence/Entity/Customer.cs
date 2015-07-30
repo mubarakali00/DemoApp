@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 
 namespace DemoApp.Persistence.Entity
 {
-    public class Actor
+    public class Customer
     {
-        public int ActorId { get; set; }
+        public int CustomerId { get; set; }
+
+        public int StoreId { get; set; }
 
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
 
-        public DateTime LastUpdated { get; set; }
+        public string Email { get; set; }
 
-        public virtual FilmActor ActorFilm { get; set; }
+        public int AddressId { get; set; }
+
     }
 }
