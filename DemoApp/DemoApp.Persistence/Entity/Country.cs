@@ -10,7 +10,7 @@ namespace DemoApp.Persistence.Entity
     {
         public int CountryId { get; set; }
 
-        public string Country { get; set; }
+        public string CountryName { get; set; }
 
         public DateTime LastUpdated { get; set; }
     }
