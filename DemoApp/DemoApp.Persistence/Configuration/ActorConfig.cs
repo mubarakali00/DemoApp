@@ -14,7 +14,7 @@ namespace DemoApp.Persistence.Configuration
         public ActorConfig()
         {
            
-            ToTable("actor");
+            ToTable("actor", "public");
 
                Property(a => a.ActorId)
                    .HasColumnName("actor_id")

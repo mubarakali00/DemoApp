@@ -13,7 +13,7 @@ namespace DemoApp.Persistence.Configuration
     {
         public LanguageConfig()
         {
-            ToTable("language");
+            ToTable("language", "public");
 
             Property(l => l.LanguageId)
                 .HasColumnName("language_id")

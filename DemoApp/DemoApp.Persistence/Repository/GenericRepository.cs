@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DemoApp.Persistence.Repository
 {
-    public class RepositoryService<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private IDbContext _context;
 
@@ -16,7 +16,7 @@ namespace DemoApp.Persistence.Repository
             get { return this._context.Set<T>(); }
         }
 
-        public RepositoryService(IDbContext context)
+        public GenericRepository(IDbContext context)
         {
             this._context = context;
         }
@@ -39,7 +39,7 @@ namespace DemoApp.Persistence.Repository
         public void Update(T entity)
         {
             if (entity == null)
-                throw new ArgumentNullException("entity");
+                throw new ArgumentNullException("_entity");
 
             this._context.SaveChanges();
         }

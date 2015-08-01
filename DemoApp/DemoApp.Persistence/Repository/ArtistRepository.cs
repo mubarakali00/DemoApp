@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DemoApp.Persistence.Repository
 {
-    public class FilmRepository : GenericRepository<Film>, IFilmRepository
+    public class ArtistRepository : GenericRepository<Artist>, IArtistRepository
     {
-        public FilmRepository(IDbContext context) : base(context)
+        public ArtistRepository(IDbContext context) : base(context)
         {
 
         }

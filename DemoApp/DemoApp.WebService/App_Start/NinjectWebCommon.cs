@@ -10,8 +10,6 @@ namespace DemoApp.WebService.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using DemoApp.Persistence;
-    using DemoApp.Persistence.Repository;
     using System.Web.Http;
 
     public static class NinjectWebCommon 
@@ -67,8 +65,9 @@ namespace DemoApp.WebService.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IDbContext>().To<DatabaseContext>();
-            kernel.Bind<IFilmRepository>().To<FilmRepository>();
+            //kernel.Bind<IDbContext>().To<DatabaseChinookContext>().InRequestScope();
+            //kernel.Bind<IArtistRepository>().To<ArtistRepository>().InRequestScope();
+            //kernel.Bind<IFilmRepository>().To<FilmRepository>();
         }        
     }
 }

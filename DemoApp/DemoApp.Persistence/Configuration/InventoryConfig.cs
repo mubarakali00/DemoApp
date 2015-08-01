@@ -13,7 +13,7 @@ namespace DemoApp.Persistence.Configuration
     {
         public InventoryConfig()
         {
-            ToTable("inventory");
+            ToTable("inventory", "public");
 
             Property(i => i.InventoryId)
                 .HasColumnName("inventory_id")

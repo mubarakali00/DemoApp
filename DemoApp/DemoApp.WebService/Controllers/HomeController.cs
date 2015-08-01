@@ -1,4 +1,4 @@
-﻿using DemoApp.Persistence.Repository;
+﻿using DemoApp.DAL.Context;
 using DemoApp.WebService.Models;
 using System;
 using System.Collections.Generic;
@@ -12,38 +12,31 @@ namespace DemoApp.WebService.Controllers
 
     public class HomeController : ApiController
     {
-        IFilmRepository _filmRepo;
-
-        public HomeController(IFilmRepository filmRepo)
+        public HomeController()
         {
-            this._filmRepo = filmRepo;
         }
 
         [HttpGet]
         [ActionName("test")]
-        public IEnumerable<Film> GetAllFilms()
+        public IEnumerable<Artist> GetAllFilms()
         {
-            var filmList = new List<Film>();
-            var entityList = _filmRepo.GetAll();
-            foreach (var entity in entityList)
-            {
-                filmList.Add(new Film { 
-                    Description = entity.Description,
-                    FilmId = entity.FilmId,
-                    LanguageId = entity.LanguageId,
-                    LastUpdated = entity.LastUpdated,
-                    Length = entity.Length,
-                    RatingMpaaRating = entity.RatingMpaaRating,
-                    ReleaseYear = entity.ReleaseYear,
-                    RentalDuration = entity.RentalDuration,
-                    RentalRate = entity.RentalRate,
-                    ReplacementCost = entity.ReplacementCost,
-                    SpecialFeatures = entity.SpecialFeatures,
-                    Title = entity.Title
-                });
-            }
+            var artistList = new List<Artist>();
 
-            return filmList;
+            using (var db = new DatabaseContext("TestDatabase"))
+            {
+                var q = from c in db.Artists
+                        select c;
+
+                foreach (var entity in q)
+                {
+                    artistList.Add(new Artist
+                    {
+                        ArtistId = entity.ArtistId,
+                        ArtistName = entity.Name
+                    });
+                }
+            }
+            return artistList;
         }
     }
 }

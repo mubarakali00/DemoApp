@@ -13,7 +13,7 @@ namespace DemoApp.Persistence.Configuration
     {
         public FilmConfig()
         {
-            ToTable("film");
+            ToTable("film", "public");
 
             Property(f => f.FilmId)
                 .HasColumnName("film_id")
