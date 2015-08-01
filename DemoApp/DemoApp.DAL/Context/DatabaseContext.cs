@@ -19,6 +19,7 @@ namespace DemoApp.DAL.Context
         }
 
         public ITable<Album> Albums { get { return this.GetTable<Album>(); } }
+
         public ITable<Artist> Artists { get { return this.GetTable<Artist>(); } }
     }
 }
