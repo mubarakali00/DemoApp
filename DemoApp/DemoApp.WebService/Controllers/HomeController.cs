@@ -1,4 +1,4 @@
-﻿using DemoApp.DAL.Context;
+﻿using DemoApp.EfRepository.Repository;
 using DemoApp.WebService.Models;
 using System;
 using System.Collections.Generic;
@@ -12,31 +12,24 @@ namespace DemoApp.WebService.Controllers
 
     public class HomeController : ApiController
     {
-        public HomeController()
+        ITrackRepository _repo;
+
+        public HomeController(ITrackRepository repo)
         {
+            this._repo = repo;
         }
 
         [HttpGet]
         [ActionName("test")]
-        public IEnumerable<Artist> GetAllFilms()
+        public IEnumerable<Track> GetAllFilms()
         {
-            var artistList = new List<Artist>();
-
-            using (var db = new DatabaseContext("TestDatabase"))
+            var trackList = new List<Track>();
+            var result = _repo.GetAll();
+            foreach (var item in result)
             {
-                var q = from c in db.Artists
-                        select c;
-
-                foreach (var entity in q)
-                {
-                    artistList.Add(new Artist
-                    {
-                        ArtistId = entity.ArtistId,
-                        ArtistName = entity.Name
-                    });
-                }
+                trackList.Add(new Track(item));
             }
-            return artistList;
+            return trackList;
         }
     }
 }

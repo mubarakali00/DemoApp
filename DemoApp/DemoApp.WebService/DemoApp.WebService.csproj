@@ -145,8 +145,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\Film.cs" />
+    <Compile Include="Models\Track.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -162,9 +164,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DemoApp.DAL\DemoApp.DAL.csproj">
-      <Project>{e615c432-1717-4de6-94ab-2e07fbb419f6}</Project>
-      <Name>DemoApp.DAL</Name>
+    <ProjectReference Include="..\DemoApp.Repository\DemoApp.Repository.csproj">
+      <Project>{6d17f676-ab87-4abf-8b69-88d980ba40af}</Project>
+      <Name>DemoApp.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

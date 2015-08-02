@@ -11,6 +11,8 @@ namespace DemoApp.WebService.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using System.Web.Http;
+    using DemoApp.EfRepository.Context;
+    using DemoApp.EfRepository.Repository;
 
     public static class NinjectWebCommon 
     {
@@ -65,8 +67,8 @@ namespace DemoApp.WebService.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            //kernel.Bind<IDbContext>().To<DatabaseChinookContext>().InRequestScope();
-            //kernel.Bind<IArtistRepository>().To<ArtistRepository>().InRequestScope();
+            kernel.Bind<IUnitOfWork>().To<DatabaseContext>();
+            kernel.Bind<ITrackRepository>().To<TrackRepository>().InRequestScope();
             //kernel.Bind<IFilmRepository>().To<FilmRepository>();
         }        
     }
