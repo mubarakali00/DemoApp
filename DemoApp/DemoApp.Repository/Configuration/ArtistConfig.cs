@@ -1,4 +1,4 @@
-﻿using DemoApp.EfRepository.Entity;
+﻿using DemoApp.Repository.Entity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoApp.EfRepository.Configuration
+namespace DemoApp.Repository.Configuration
 {
     public class ArtistConfig : EntityTypeConfiguration<Artist>
     {

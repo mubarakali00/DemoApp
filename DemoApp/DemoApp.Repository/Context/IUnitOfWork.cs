@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoApp.EfRepository.Context
+namespace DemoApp.Repository.Context
 {
     public interface IUnitOfWork : IDisposable
     {

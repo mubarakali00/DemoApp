@@ -1,5 +1,5 @@
-﻿using DemoApp.EfRepository.Configuration;
-using DemoApp.EfRepository.Entity;
+﻿using DemoApp.Repository.Configuration;
+using DemoApp.Repository.Entity;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,7 +10,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoApp.EfRepository.Context
+namespace DemoApp.Repository.Context
 {
     public class DatabaseContext : DbContext, IUnitOfWork
     {
@@ -18,6 +18,8 @@ namespace DemoApp.EfRepository.Context
             : base(ConfigurationManager.ConnectionStrings["chinook-local"].Name)
         {
             Database.SetInitializer<DatabaseContext>(null);
+            //this.Configuration.LazyLoadingEnabled = false;
+            //this.Configuration.ProxyCreationEnabled = false;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoApp.EfRepository.Entity
+namespace DemoApp.Repository.Entity
 {
     public class Artist
     {

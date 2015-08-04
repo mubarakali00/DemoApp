@@ -1,4 +1,4 @@
-﻿using DemoApp.EfRepository.Entity;
+﻿using DemoApp.Repository.Entity;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoApp.EfRepository.Configuration
+namespace DemoApp.Repository.Configuration
 {
     public class TrackConfig : EntityTypeConfiguration<Track>
     {

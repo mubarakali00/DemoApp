@@ -1,5 +1,5 @@
-﻿using DemoApp.EfRepository.Context;
-using DemoApp.EfRepository.Repository;
+﻿using DemoApp.Repository.Context;
+using DemoApp.Repository.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;

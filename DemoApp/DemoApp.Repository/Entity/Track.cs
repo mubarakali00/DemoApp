@@ -1,10 +1,11 @@
-﻿using System;
+﻿using DemoApp.Repository.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoApp.EfRepository.Entity
+namespace DemoApp.Repository.Entity
 {
     public class Track
     {
@@ -23,6 +24,8 @@ namespace DemoApp.EfRepository.Entity
         public int Byte { get; set; }
 
         public decimal UnitPrice { get; set; }
+
+        public virtual Album Album { get; set; }
 
     }
 }

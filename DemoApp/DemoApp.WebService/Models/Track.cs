@@ -23,7 +23,9 @@ namespace DemoApp.WebService.Models
 
         public decimal UnitPrice { get; set; }
 
-        public Track(DemoApp.EfRepository.Entity.Track track)
+        public Album Album { get; set; }
+
+        public Track(DemoApp.Repository.Entity.Track track)
         {
             this.AlbumId = track.AlbumId;
             this.Byte = track.Byte;
@@ -33,6 +35,18 @@ namespace DemoApp.WebService.Models
             this.Name = track.Name;
             this.TrackId = track.TrackId;
             this.UnitPrice = track.UnitPrice;
+            this.Album = track.Album != null ? getAlbum(track.Album) : new Album();
+        }
+
+        private Album getAlbum(DemoApp.Repository.Entity.Album album)
+        {
+            Album _album = new Album
+            {
+                AlbumId = album.AlbumId,
+                ArtistId = album.ArtistId,
+                Title = album.AlbumTitle
+            };
+            return _album;
         }
     }
 }

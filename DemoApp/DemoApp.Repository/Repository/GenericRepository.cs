@@ -1,4 +1,4 @@
-﻿using DemoApp.EfRepository.Context;
+﻿using DemoApp.Repository.Context;
 using DemoApp.Persistence.Repository;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DemoApp.EfRepository.Repository
+namespace DemoApp.Repository.Repository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
@@ -25,7 +25,7 @@ namespace DemoApp.EfRepository.Repository
 
         public IQueryable<T> GetAll()
         {
-            return _entity.AsQueryable();
+            return _entity.ToList().AsQueryable();
         }
 
         public T GetById(object id)
@@ -44,7 +44,7 @@ namespace DemoApp.EfRepository.Repository
                 throw new ArgumentNullException("_entity");
 
 
-            //this._context.Save();
+            this._context.Save();
         }
 
         public void Delete(T entity)
