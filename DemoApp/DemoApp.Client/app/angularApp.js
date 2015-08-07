@@ -4,14 +4,15 @@
 
     app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
 
+        var baseUrl = 'app/view/';
         $routeProvider
             .when('/', {
-                templateUrl: 'app/view/tracks/trackListView.html',
+                templateUrl: baseUrl + 'tracks/trackListView.html',
                 controller: 'tracksController',
                 controllerAs: 'vm'
             })
             .when('/contact', {
-                templateUrl: 'app/view/contact/contactView.html',
+                templateUrl: baseUrl + 'contact/contactView.html',
                 controller: 'contactController',
                 controllerAs: 'vm'
             })

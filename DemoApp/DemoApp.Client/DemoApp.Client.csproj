@@ -198,6 +198,7 @@
     <Content Include="app\angularApp.js" />
     <Content Include="app\controller\contact\contactController.js" />
     <Content Include="app\controller\tracks\tracksController.js" />
+    <Content Include="app\dataService.js" />
     <Content Include="app\view\contact\contactView.html" />
     <Content Include="app\view\tracks\trackListView.html" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -209,6 +210,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-resource.js" />
+    <Content Include="Scripts\angular-resource.min.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular.js" />
@@ -221,6 +224,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Scripts\angular-resource.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

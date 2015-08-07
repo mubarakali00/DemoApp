@@ -26,6 +26,24 @@ namespace DemoApp.Client
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/bundles/mini-spa/style").Include(
+                "~/Content/bootstrap.css"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/mini-spa/script").Include(
+                "~/Scripts/angular.js",
+                "~/Scripts/angular-route.js",
+                "~/Scripts/angular-resource.js",
+                "~/Scripts/jquery-1.10.2.js",
+                "~/Scripts/bootstrap.js",
+                "~/app/angularApp.js",
+                "~/app/dataService.js",
+                "~/app/controller/tracks/tracksController.js",
+                "~/app/controller/contact/contactController.js"
+                ));
+
+            BundleTable.EnableOptimizations = false;
         }
     }
 }
