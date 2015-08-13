@@ -45,7 +45,7 @@ namespace DemoApp.Repository.Context
 
         public int Save()
         {
-            return SaveChanges();
+            return this.SaveChanges();
         }
 
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : class

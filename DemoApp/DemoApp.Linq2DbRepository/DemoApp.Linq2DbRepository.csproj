@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{774BCB1B-237F-47BC-964E-FBCDEE44938C}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{379954F4-5A2E-4686-97EF-43F8020345A9}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DemoApp.Tests</RootNamespace>
-    <AssemblyName>DemoApp.Tests</AssemblyName>
+    <RootNamespace>DemoApp.Linq2DbRepository</RootNamespace>
+    <AssemblyName>DemoApp.Linq2DbRepository</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,27 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="linq2db">
-      <HintPath>..\packages\linq2db.1.0.7.2\lib\net45\linq2db.dll</HintPath>
-    </Reference>
-    <Reference Include="Mono.Security">
-      <HintPath>..\packages\Npgsql.2.2.5\lib\net45\Mono.Security.dll</HintPath>
+      <HintPath>..\packages\linq2db.1.0.7.1\lib\net45\linq2db.dll</HintPath>
     </Reference>
     <Reference Include="Npgsql">
-      <HintPath>..\packages\Npgsql.2.2.5\lib\net45\Npgsql.dll</HintPath>
-    </Reference>
-    <Reference Include="Npgsql.EntityFramework">
-      <HintPath>..\packages\Npgsql.EntityFramework.2.2.5\lib\net45\Npgsql.EntityFramework.dll</HintPath>
+      <HintPath>..\packages\Npgsql.3.0.0\lib\net45\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -61,11 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="DataContext\DatabaseContext.cs" />
+    <Compile Include="DataContext\IUnitOfWork.cs" />
+    <Compile Include="DataModels\CopyMe.PostgreSQL1.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CopyMe.PostgreSQL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Category.cs" />
+    <Compile Include="Entity\Product.cs" />
+    <Compile Include="Entity\Supplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CategoryRepository.cs" />
+    <Compile Include="Repository\IGenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="LinqToDB.Templates\!ReadMe.LinqToDB.md" />
     <None Include="LinqToDB.Templates\DataAnnotations.ttinclude" />
     <None Include="LinqToDB.Templates\DataModel.ttinclude" />
     <None Include="LinqToDB.Templates\EditableObject.ttinclude" />
@@ -79,27 +75,27 @@
     <None Include="LinqToDB.Templates\LinqToDB.PostgreSQL.ttinclude" />
     <None Include="LinqToDB.Templates\LinqToDB.SqlCe.ttinclude" />
     <None Include="LinqToDB.Templates\LinqToDB.SQLite.ttinclude" />
-    <None Include="LinqToDB.Templates\LinqToDB.SqlServer.SqlTypes.ttinclude" />
     <None Include="LinqToDB.Templates\LinqToDB.SqlServer.ttinclude" />
     <None Include="LinqToDB.Templates\LinqToDB.Sybase.ttinclude" />
     <None Include="LinqToDB.Templates\LinqToDB.Tools.ttinclude" />
     <None Include="LinqToDB.Templates\LinqToDB.ttinclude" />
     <None Include="LinqToDB.Templates\NotifyPropertyChanged.ttinclude" />
     <None Include="LinqToDB.Templates\PluralizationService.ttinclude" />
-    <None Include="LinqToDB.Templates\ReadMe.LinqToDB.md" />
     <None Include="LinqToDB.Templates\T4Model.ttinclude" />
     <None Include="LinqToDB.Templates\Validation.ttinclude" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DemoApp.Linq2DbRepository\DemoApp.Linq2DbRepository.csproj">
-      <Project>{379954f4-5a2e-4686-97ef-43f8020345a9}</Project>
-      <Name>DemoApp.Linq2DbRepository</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="DataModels\CopyMe.PostgreSQL.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CopyMe.PostgreSQL1.generated.cs</LastGenOutput>
+    </None>
     <Content Include="LinqToDB.Templates\CopyMe.PostgreSQL.tt.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
