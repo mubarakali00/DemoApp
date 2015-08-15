@@ -10,8 +10,6 @@ namespace DemoApp.Client.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-    using DemoApp.Repository.Context;
-    using DemoApp.Repository.Repository;
 
     public static class NinjectWebCommon 
     {
@@ -63,9 +61,9 @@ namespace DemoApp.Client.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IUnitOfWork>().To<DatabaseContext>();
-            kernel.Bind<ITrackRepository>().To<TrackRepository>().InRequestScope();
-            kernel.Bind<IAlbumRepository>().To<AlbumRepository>().InRequestScope();
+            //kernel.Bind<IUnitOfWork>().To<DatabaseContext>();
+            //kernel.Bind<ITrackRepository>().To<TrackRepository>().InRequestScope();
+            //kernel.Bind<IAlbumRepository>().To<AlbumRepository>().InRequestScope();
         }        
     }
 }

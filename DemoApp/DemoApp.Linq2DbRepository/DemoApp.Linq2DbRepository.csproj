@@ -56,6 +56,7 @@
     <Compile Include="Entity\Category.cs" />
     <Compile Include="Entity\Product.cs" />
     <Compile Include="Entity\Supplier.cs" />
+    <Compile Include="Helpers\ShortGuid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\IGenericRepository.cs" />
